@@ -1,167 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Page Title Here]</title>
-    <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f3f4f6; /* Light gray background matching the screenshot */
-            color: #111827;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>100 viral hooks</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f0f0f0; }
 
-        /* Header Section */
-        .hero-section {
-            background-color: #FFEA00; /* Bright yellow replacement */
-            text-align: center;
-            padding: 60px 20px 50px 20px;
-        }
+    /* ===== HERO — changed to yellow ===== */
+    .hero {
+      background-color: #FFE000;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 12vw, 90px);
+      font-weight: 900;
+      color: #000;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .hero p {
+      font-size: clamp(18px, 4vw, 26px);
+      color: #000;
+      margin-top: 18px;
+      font-weight: 400;
+    }
 
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin: 0 0 15px 0;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
+    /* ===== CARD ===== */
+    .card {
+      max-width: 680px;
+      margin: 36px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 28px 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    }
 
-        .hero-section h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 0;
-            line-height: 1.3;
-        }
+    /* ===== LOGO BLOCK ===== */
+    .logo-area { text-align: center; margin-bottom: 6px; }
+    .pbl-logo { display: inline-flex; gap: 5px; margin-bottom: 10px; }
+    .logo-box {
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 18px;
+    }
+    .logo-box.p { background: #8DC63F; color: #111; }
+    .logo-box.b { background: #FFE000; color: #111; }
+    .logo-box.l { background: #111; color: #fff; }
+    .brand-name {
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2.5px; color: #111; margin-bottom: 3px;
+    }
+    .doc-subtitle {
+      font-size: 11px; letter-spacing: 1.5px; color: #777;
+      text-decoration: underline;
+    }
 
-        /* Image/Document Preview Section */
-        .preview-section {
-            display: flex;
-            justify-content: center;
-            padding: 0 20px;
-            margin-top: -10px; /* Pulls it slightly up if needed, adjust as you see fit */
-        }
+    /* ===== PREVIEW TABLE ===== */
+    .preview-table {
+      width: 100%; border-collapse: collapse;
+      margin: 20px 0 10px; font-size: 11px;
+    }
+    .preview-table thead tr { background: #8DC63F; }
+    .preview-table thead th {
+      padding: 8px 10px; text-align: left;
+      font-weight: 700; font-size: 10px;
+      text-transform: uppercase; color: #111;
+      border: 1px solid #bbb;
+    }
+    .preview-table tbody tr { border-bottom: 1px solid #eee; }
+    .preview-table tbody td {
+      padding: 6px 10px; color: #333;
+      vertical-align: top; line-height: 1.45;
+      border: 1px solid #ddd;
+    }
+    .preview-table tbody td:first-child { width: 52%; }
+    .preview-table tbody td.link-cell {
+      color: #1a6bb5; font-size: 10px; word-break: break-all;
+    }
 
-        .preview-image-container {
-            background-color: #ffffff;
-            max-width: 600px;
-            width: 100%;
-            min-height: 300px; /* Placeholder height */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #e5e7eb;
-            color: #9ca3af;
-            font-weight: bold;
-        }
+    /* ===== FORM ===== */
+    .form-group { margin-top: 22px; }
+    .form-group label {
+      display: block; font-weight: 600;
+      font-size: 16px; margin-bottom: 8px; color: #111;
+    }
+    .form-group input {
+      width: 100%; padding: 16px;
+      border: 1.5px solid #ccc; border-radius: 8px;
+      font-size: 16px; color: #333; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: #111; }
+    .form-group input::placeholder { color: #aaa; }
 
-        .preview-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+    .submit-btn {
+      width: 100%; padding: 20px;
+      background: #8DC63F; border: none; border-radius: 8px;
+      font-size: 18px; font-weight: 900;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: #111; cursor: pointer; margin-top: 24px;
+      transition: opacity 0.2s;
+    }
+    .submit-btn:hover { opacity: 0.88; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-        /* Form Section */
-        .form-section {
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px 60px 20px;
-        }
+    /* ===== THANK YOU ===== */
+    #thank-you { display: none; text-align: center; padding: 40px 10px; }
+    #thank-you h2 {
+      font-size: 30px; font-weight: 900; color: #111; margin-bottom: 14px;
+    }
+    #thank-you p { font-size: 17px; color: #555; line-height: 1.65; }
+    #thank-you .dl-link {
+      display: inline-block; margin-top: 26px;
+      padding: 16px 40px; background: #FFE000;
+      color: #111; font-weight: 900;
+      text-decoration: none; border-radius: 8px;
+      font-size: 16px; letter-spacing: 1px;
+    }
 
-        .form-card {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 500px;
-            padding: 40px 30px;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            box-sizing: border-box;
-        }
-
-        /* Form Inputs */
-        .input-group {
-            margin-bottom: 25px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 8px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 14px 16px;
-            font-size: 1rem;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            box-sizing: border-box;
-            outline: none;
-            transition: border-color 0.2s ease;
-        }
-
-        .input-group input:focus {
-            border-color: #111827;
-        }
-
-        /* Submit Button */
-        .submit-btn {
-            width: 100%;
-            background-color: #FFEA00; /* Matching yellow button */
-            color: #111827;
-            border: none;
-            padding: 18px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.2s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #e6d300;
-        }
-    </style>
+    /* ===== ERROR ===== */
+    .error-msg {
+      display: none; color: #c0392b;
+      font-size: 13px; margin-top: 8px;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="hero-section">
-        <h1>100 VIRAL HOOKS</h1>
-        <h2>Viral proven plug in hook templates for any niche.</h2>
-    </header>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>1,000 VIRAL<br>HOOKS</h1>
+    <p>Viral proven plug in hook templates for any niche</p>
+  </div>
 
-    <section class="preview-section">
-        <div class="preview-image-container"> 
-          <img src="Screenshot_20260618_015354_Docs.jpg" alt="Spreadsheet Preview">
-          
-        </div>
-    </section>
+  <!-- CARD -->
+  <div class="card">
 
-    <section class="form-section">
-        <div class="form-card">
-            
-            <form action="https://script.google.com/macros/s/AKfycbxRVzQrHj6T88hu66v0Zhj20bw6Ie-B9zObMiAaRpQJ9Cgxawb-9K0RrVeuraVaA4uM/exec" method="POST">
-                
-                <div class="input-group">
-                    <label for="full-name">[Name Label]</label>
-                    <input type="text" id="full-name" name="name" placeholder="[Name Placeholder]">
-                </div>
+    <!-- Logo -->
+    <div class="logo-area">
+      <div class="pbl-logo">
+        <div class="logo-box p">P</div>
+        <div class="logo-box b">B</div>
+        <div class="logo-box l">L</div>
+      </div>
+      <div class="brand-name">Steven Yacoub</div>
+      <div class="doc-subtitle">100 Viral Hooks</div>
+    </div>
 
-                <div class="input-group">
-                    <label for="email-address">[Email Label] *</label>
-                    <input type="email" id="email-address" name="email" placeholder="[Email Placeholder]" required>
-                </div>
+    <!-- Preview Table -->
+    <table class="preview-table">
+      <thead>
+        <tr>
+          <th>[Category — e.g. EDUCATIONAL]</th>
+          <th>INSPO HOOK:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[Hook template 1 — e.g. "This represents your X before, during, and after X"]</td>
+          <td class="link-cell">[instagram.com/p/...]</td>
+        </tr>
+        <tr>
+          <td>[Hook template 2]</td>
+          <td class="link-cell">[instagram.com/p/...]</td>
+        </tr>
+        <tr>
+          <td>[Hook template 3]</td>
+          <td class="link-cell">[instagram.com/p/...]</td>
+        </tr>
+        <tr>
+          <td>[Hook template 4]</td>
+          <td class="link-cell">[instagram.com/p/...]</td>
+        </tr>
+        <tr>
+          <td>[Hook template 5]</td>
+          <td class="link-cell">[instagram.com/p/...]</td>
+        </tr>
+      </tbody>
+    </table>
 
-                <button type="submit" class="submit-btn">[BUTTON TEXT]</button>
-            </form>
+    <!-- Form -->
+    <div id="form-wrapper">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="inp-name" placeholder="Full Name" />
+      </div>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" id="inp-email" placeholder="Email" />
+        <div class="error-msg" id="email-error">Please enter a valid email.</div>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="submitForm()">DOWNLOAD</button>
+    </div>
 
-        </div>
-    </section>
+    <!-- Thank You (hidden until submit) -->
+    <div id="thank-you">
+      <h2>[Thank you headline — e.g. "You're in! 🎉"]</h2>
+      <p>
+        [Your custom message — e.g. "Your free hooks doc is on its way.
+        Check your inbox in the next few minutes."]
+      </p>
+      <a href="[PASTE YOUR FILE/DRIVE LINK HERE]" class="dl-link" target="_blank">
+        DOWNLOAD NOW
+      </a>
+    </div>
+
+  </div><!-- /card -->
+
+  <script>
+    // ⬇️ Paste your Google Apps Script Web App URL here
+    const SCRIPT_URL = '[PASTE YOUR APPS SCRIPT URL HERE]';
+
+    async function submitForm() {
+      const name  = document.getElementById('inp-name').value.trim();
+      const email = document.getElementById('inp-email').value.trim();
+      const errEl = document.getElementById('email-error');
+      const btn   = document.getElementById('submit-btn');
+
+      // Basic validation
+      errEl.style.display = 'none';
+      if (!email || !email.includes('@')) {
+        errEl.style.display = 'block';
+        return;
+      }
+
+      btn.textContent = 'SENDING...';
+      btn.disabled = true;
+
+      const body = new FormData();
+      body.append('name', name);
+      body.append('email', email);
+
+      try {
+        // no-cors = we can't read the response, but the request goes through
+        await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body });
+      } catch (_) {
+        // fetch may throw on opaque response — that's fine, data still saves
+      }
+
+      // Show thank you
+      document.getElementById('form-wrapper').style.display = 'none';
+      document.getElementById('thank-you').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
