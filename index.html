@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>100 viral hooks</title>
+  <title>100 Viral Hooks</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #f0f0f0; }
 
-    /* ===== HERO — changed to yellow ===== */
+    /* ===== HERO ===== */
     .hero {
       background-color: #FFE000;
       padding: 60px 24px;
@@ -34,55 +34,20 @@
       margin: 36px auto;
       background: #fff;
       border-radius: 12px;
-      padding: 36px 28px 40px;
+      padding: 28px 28px 40px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.09);
     }
 
-    /* ===== LOGO BLOCK ===== */
-    .logo-area { text-align: center; margin-bottom: 6px; }
-    .pbl-logo { display: inline-flex; gap: 5px; margin-bottom: 10px; }
-    .logo-box {
-      width: 42px; height: 42px;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 18px;
-    }
-    .logo-box.p { background: #8DC63F; color: #111; }
-    .logo-box.b { background: #FFE000; color: #111; }
-    .logo-box.l { background: #111; color: #fff; }
-    .brand-name {
-      font-size: 13px; font-weight: 700;
-      letter-spacing: 2.5px; color: #111; margin-bottom: 3px;
-    }
-    .doc-subtitle {
-      font-size: 11px; letter-spacing: 1.5px; color: #777;
-      text-decoration: underline;
-    }
-
-    /* ===== PREVIEW TABLE ===== */
-    .preview-table {
-      width: 100%; border-collapse: collapse;
-      margin: 20px 0 10px; font-size: 11px;
-    }
-    .preview-table thead tr { background: #8DC63F; }
-    .preview-table thead th {
-      padding: 8px 10px; text-align: left;
-      font-weight: 700; font-size: 10px;
-      text-transform: uppercase; color: #111;
-      border: 1px solid #bbb;
-    }
-    .preview-table tbody tr { border-bottom: 1px solid #eee; }
-    .preview-table tbody td {
-      padding: 6px 10px; color: #333;
-      vertical-align: top; line-height: 1.45;
-      border: 1px solid #ddd;
-    }
-    .preview-table tbody td:first-child { width: 52%; }
-    .preview-table tbody td.link-cell {
-      color: #1a6bb5; font-size: 10px; word-break: break-all;
+    /* ===== SCREENSHOT PREVIEW ===== */
+    .preview-image {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #e3e3e3;
     }
 
     /* ===== FORM ===== */
-    .form-group { margin-top: 22px; }
+    .form-group { margin-top: 28px; }
     .form-group label {
       display: block; font-weight: 600;
       font-size: 16px; margin-bottom: 8px; color: #111;
@@ -107,18 +72,14 @@
     .submit-btn:hover { opacity: 0.88; }
     .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-    /* ===== THANK YOU ===== */
+    /* ===== THANK YOU / REDIRECT STATE ===== */
     #thank-you { display: none; text-align: center; padding: 40px 10px; }
     #thank-you h2 {
       font-size: 30px; font-weight: 900; color: #111; margin-bottom: 14px;
     }
     #thank-you p { font-size: 17px; color: #555; line-height: 1.65; }
-    #thank-you .dl-link {
-      display: inline-block; margin-top: 26px;
-      padding: 16px 40px; background: #FFE000;
-      color: #111; font-weight: 900;
-      text-decoration: none; border-radius: 8px;
-      font-size: 16px; letter-spacing: 1px;
+    #thank-you .redirect-note {
+      margin-top: 22px; font-size: 13px; color: #999;
     }
 
     /* ===== ERROR ===== */
@@ -139,48 +100,12 @@
   <!-- CARD -->
   <div class="card">
 
-    <!-- Logo -->
-    <div class="logo-area">
-      <div class="pbl-logo">
-        <div class="logo-box p">P</div>
-        <div class="logo-box b">B</div>
-        <div class="logo-box l">L</div>
-      </div>
-      <div class="brand-name">Steven Yacoub</div>
-      <div class="doc-subtitle">100 Viral Hooks</div>
-    </div>
-
-    <!-- Preview Table -->
-    <table class="preview-table">
-      <thead>
-        <tr>
-          <th>[Category — e.g. EDUCATIONAL]</th>
-          <th>INSPO HOOK:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>[Hook template 1 — e.g. "This represents your X before, during, and after X"]</td>
-          <td class="link-cell">[instagram.com/p/...]</td>
-        </tr>
-        <tr>
-          <td>[Hook template 2]</td>
-          <td class="link-cell">[instagram.com/p/...]</td>
-        </tr>
-        <tr>
-          <td>[Hook template 3]</td>
-          <td class="link-cell">[instagram.com/p/...]</td>
-        </tr>
-        <tr>
-          <td>[Hook template 4]</td>
-          <td class="link-cell">[instagram.com/p/...]</td>
-        </tr>
-        <tr>
-          <td>[Hook template 5]</td>
-          <td class="link-cell">[instagram.com/p/...]</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Screenshot preview (must live in the same GitHub repo) -->
+    <img
+      src="Screenshot_20260618_015354_Docs.jpg"
+      alt="1000 Viral Hooks preview"
+      class="preview-image"
+    />
 
     <!-- Form -->
     <div id="form-wrapper">
@@ -196,23 +121,20 @@
       <button class="submit-btn" id="submit-btn" onclick="submitForm()">DOWNLOAD</button>
     </div>
 
-    <!-- Thank You (hidden until submit) -->
+    <!-- Shown briefly right before the redirect fires -->
     <div id="thank-you">
-      <h2>[Thank you headline — e.g. "You're in! 🎉"]</h2>
-      <p>
-        [Your custom message — e.g. "Your free hooks doc is on its way.
-        Check your inbox in the next few minutes."]
-      </p>
-      <a href="[PASTE YOUR FILE/DRIVE LINK HERE]" class="dl-link" target="_blank">
-        DOWNLOAD NOW
-      </a>
+      <h2>You're in! 🎉</h2>
+      <p>Your free hooks are on the way</p>
+      <p class="redirect-note">Redirecting you now...</p>
     </div>
 
   </div><!-- /card -->
 
   <script>
     // ⬇️ Paste your Google Apps Script Web App URL here
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxEPlHUy9wtenJiC7T_R9XG2OOZyGhvpVXDrmEJ-PN3T0103yN4z76QFVOOiAp9hTEr/exec';
+    const SCRIPT_URL   = 'https://script.google.com/macros/s/AKfycbxEPlHUy9wtenJiC7T_R9XG2OOZyGhvpVXDrmEJ-PN3T0103yN4z76QFVOOiAp9hTEr/exec';
+    // Where people land after submitting
+    const REDIRECT_URL = 'https://docs.google.com/document/d/1Ssu7Twfqx62tETWgwC42D6Ye_mNrMthdyQhHiT_DsfM/edit?usp=drivesdk';
 
     async function submitForm() {
       const name  = document.getElementById('inp-name').value.trim();
@@ -220,7 +142,6 @@
       const errEl = document.getElementById('email-error');
       const btn   = document.getElementById('submit-btn');
 
-      // Basic validation
       errEl.style.display = 'none';
       if (!email || !email.includes('@')) {
         errEl.style.display = 'block';
@@ -235,15 +156,18 @@
       body.append('email', email);
 
       try {
-        // no-cors = we can't read the response, but the request goes through
+        // no-cors = we can't read the response, but the request still goes through
         await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body });
       } catch (_) {
-        // fetch may throw on opaque response — that's fine, data still saves
+        // an opaque-response throw here is normal, data still saves
       }
 
-      // Show thank you
       document.getElementById('form-wrapper').style.display = 'none';
       document.getElementById('thank-you').style.display = 'block';
+
+      setTimeout(() => {
+        window.location.href = REDIRECT_URL;
+      }, 1500);
     }
   </script>
 
